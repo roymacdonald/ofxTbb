@@ -15,11 +15,11 @@
 # and the PG will write to the console the kind of error and in which line it is
 
 meta:
-	ADDON_NAME = ofxAddonTemplate
-	ADDON_DESCRIPTION = ofxAddonTemplate is amazing!
-	ADDON_AUTHOR = @yournamehere
-	ADDON_TAGS = "addon" "template"
-	ADDON_URL = http://github.com/yournamehere/ofxAddonTemplate
+	ADDON_NAME = ofxTbb
+	ADDON_DESCRIPTION = Intel's Threading Building Blocks for openFrameworks.
+	ADDON_AUTHOR = @roymacdonald
+	ADDON_TAGS = "addon" "threading" "threads" "tasks" "tbb" "threading building blocks"
+	ADDON_URL = http://github.com/yournamehere/ofxTbb
 
 common:
 	# dependencies with other addons, a list of them separated by spaces 
@@ -37,7 +37,7 @@ common:
 	
 	# any special flag that should be passed to the linker when using this
 	# addon, also used for system libraries with -lname
-	ADDON_LDFLAGS = -rpath=\$(OF_PATH)/addons/ofxTbb/libs/tbb/lib/osx
+	
 	
 	# linux only, any library that should be included in the project using
 	# pkg-config
@@ -64,7 +64,9 @@ common:
 	ADDON_INCLUDES_EXCLUDE += libs/tbb
 	ADDON_INCLUDES_EXCLUDE += libs/tbb/lib
 	ADDON_INCLUDES_EXCLUDE += src
-
+osx:
+	# ADDON_LDFLAGS =  -rpath /path/to/your/openFrameworks/folder/addons/ofxTbb/libs/tbb/lib/osx
+	ADDON_LDFLAGS =  -rpath /Users/roy/openFrameworks/addons/ofxTbb/libs/tbb/lib/osx
 	# ADDON_LIBS_EXCLUDE = libs/tbb/lib/% 
 	ADDON_LIBS = libs/tbb/lib/osx/libtbb_debug.dylib
 	ADDON_LIBS += libs/tbb/lib/osx/libtbb_preview_debug.dylib
@@ -76,15 +78,6 @@ common:
 	#ADDON_LIBS += libs/tbb/lib/osx/libtbbmalloc_proxy.dylib
 	#ADDON_LIBS += libs/tbb/lib/osx/libtbbmalloc.dylib
 linux64:
-	# binary libraries, these will be usually parsed from the file system but some 
-	# libraries need to passed to the linker in a specific order/
-	# 
-	# For example in the ofxOpenCV addon we do something like this:
-	#
-	# ADDON_LIBS =
-	# ADDON_LIBS += libs/opencv/lib/linuxarmv6l/libopencv_legacy.a
-	# ADDON_LIBS += libs/opencv/lib/linuxarmv6l/libopencv_calib3d.a
-	# ...
 linux:
 win_cb:
 linuxarmv6l:
